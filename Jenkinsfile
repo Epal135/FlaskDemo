@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 		VERSION = '3.0.1'
-		DOCKERHUB_CREDENTIALS = credentials('docker-epal135-credentials')
+		DOCKERHUB_CREDENTIALS = credentials('epal135')
 	}
 	stages {
 		stage('Build') {
