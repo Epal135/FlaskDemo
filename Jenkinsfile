@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 		VERSION = '3.0.1'
-		DOCKERHUB_CREDENTIALS = credentials('docker-Epal135-credentials')
+		DOCKERHUB_CREDENTIALS = credentials('docker-epal135-credentials')
 	}
 	stages {
 		stage('Build') {
@@ -29,8 +29,8 @@ pipeline {
                 {
                         steps {
 				sh 'sudo chmod 666 /var/run/docker.sock'
-                                sh 'docker build -t Epal135/flaskdemo:$VERSION .'
-                                sh 'docker build -t Epal135/flaskdemo:latest .'
+                                sh 'docker build -t epal135/flaskdemo:$VERSION .'
+                                sh 'docker build -t epal135/flaskdemo:latest .'
                         }
                 }
 
@@ -44,8 +44,8 @@ pipeline {
 		stage('Push Image to Dockerhub') {
 
 			steps {
-				sh 'docker push Epal135/flaskdemo:$VERSION'
-				sh 'docker push Epal135/flaskdemo:latest'
+				sh 'docker push epal135/flaskdemo:$VERSION'
+				sh 'docker push epal135/flaskdemo:latest'
 			}
 		}
 
